@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>orders</title>
+  </head>
+  <body>
+    <h1>Orders</h1>
+    <% @library.orders.uniq { |order| order.reader.email }.map do |order| %>
+      <span>
+        <%= order.book.author.name %>
+      </span>
+      <span>
+        <%= order.book.title %>
+      </span>
+      <span>
+        <%= order.date %>
+      </span>
+      <span>
+        <%= order.reader.email %>
+      </span>
+      <br>
+    <% end %>
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>

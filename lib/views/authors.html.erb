@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>authors</title>
+  </head>
+  <body>
+    <h1>Authors</h1>
+    <% @library.authors.uniq(&:name).map do |author| %>
+      <%= author.name %>
+      <br>
+      <br>
+    <% end %>
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>
