@@ -15,6 +15,6 @@ class Book
 
   def validate
     validate_string!(@title, 'title')
-    validate_class!(@author, Author, 'author')
+    # validate_class!(@author, Author, 'author')
   end
 end

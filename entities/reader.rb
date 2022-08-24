@@ -21,7 +21,7 @@ class Reader
     validate_string!(@city, 'city')
     validate_string!(@email, 'email')
     validate_string!(@street, 'street')
-    validate_number!(@house, 'house')
-    validate_positive!(@house, 'house')
+    # validate_number!(@house, 'house')
+    # validate_positive!(@house, 'house')
   end
 end
