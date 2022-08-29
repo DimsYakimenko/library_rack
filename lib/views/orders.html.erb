@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>Orders</h1>
-    <% @library.orders.uniq { |order| order.reader.email }.map do |order| %>
+    <% @library.orders.map do |order| %>
       <span>
         <%= order.book.author.name %>
       </span>
@@ -33,7 +33,7 @@
       <br>
       <br>
       <label for="reader">Reader:</label>
-      <select name="reader" form="create-reader">
+      <select name="reader" form="create-order">
         <% @library.readers.uniq(&:email).each do |reader| %>
           <option value="<%= reader.email %>">
             <%= reader.email %>
@@ -42,14 +42,8 @@
       </select>
       <br>
       <br>
-          <label for="date">Date:</label>
-      <select name="date" form="create-order">
-        <option value="<%= Date.today %>">
-          <%= Date.today %>
-        </option>
-
-      </select>
-
+      <label for="date">Date:</label>
+      <input type="date" name="date">
       <input type="submit" value="Save">
     </form>
 
