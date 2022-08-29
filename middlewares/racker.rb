@@ -53,14 +53,16 @@ module Middlewares
     end
 
     def create_reader(params)
-      reader = Reader.new(params['name'], params['email'], params['city'], params['street'], params['house'])
+      reader = Reader.new(params['name'], params['email'], params['city'], params['street'], params['house'].to_i)
       @library.add(reader)
       @library.save
       respond(render('readers.html.erb'))
     end
 
     def create_order(params)
-      order = Order.new(params['book'], params['reader'], params['date'])
+      book = @library.books.find { |book| book.title == params['book'] }
+      reader = @library.readers.find { |reader| reader.email == params['reader'] }
+      order = Order.new(book, reader, params['date'])
       @library.add(order)
       @library.save
       respond(render('orders.html.erb'))

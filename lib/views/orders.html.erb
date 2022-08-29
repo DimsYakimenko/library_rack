@@ -21,9 +21,9 @@
       <br>
     <% end %>
 
-    <form id="create-book" method="post">
+    <form id="create-order" method="post">
      <label for="book">Book:</label>
-      <select name="book" form="create-book">
+      <select name="book" form="create-order">
         <% @library.books.uniq(&:title).each do |book| %>
           <option value="<%= book.title %>">
             <%= book.title %>
@@ -43,10 +43,10 @@
       <br>
       <br>
           <label for="date">Date:</label>
-      <select name="date" form="create-reader">
-          <option value="<%= Time.now %>">
-            <%= Time.now %>
-          </option>
+      <select name="date" form="create-order">
+        <option value="<%= Date.today %>">
+          <%= Date.today %>
+        </option>
 
       </select>
 

@@ -15,7 +15,7 @@ class Order
   private
 
   def validate
-    # validate_class!(@book, Book, 'book')
-    # validate_class!(@reader, Reader, 'reader')
+    validate_class!(@book, Book, 'book')
+    validate_class!(@reader, Reader, 'reader')
   end
 end
