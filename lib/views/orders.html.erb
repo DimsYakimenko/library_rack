@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>books</title>
+  </head>
+  <body>
+    <h1>Orders</h1>
+    <% @library.orders.map do |order| %>
+      <span>
+        <%= order.book.author.name %>
+      </span>
+      <span>
+        <%= order.book.title %>
+      </span>
+      <span>
+        <%= order.date %>
+      </span>
+      <span>
+        <%= order.reader.email %>
+      </span>
+      <br>
+    <% end %>
+
+    <form id="create-order" method="post">
+     <label for="book">Book:</label>
+      <select name="book" form="create-order">
+        <% @library.books.uniq(&:title).each do |book| %>
+          <option value="<%= book.title %>">
+            <%= book.title %>
+          </option>
+        <% end %>
+      </select>
+      <br>
+      <br>
+      <label for="reader">Reader:</label>
+      <select name="reader" form="create-order">
+        <% @library.readers.uniq(&:email).each do |reader| %>
+          <option value="<%= reader.email %>">
+            <%= reader.email %>
+          </option>
+        <% end %>
+      </select>
+      <br>
+      <br>
+      <label for="date">Date:</label>
+      <input type="date" name="date">
+      <input type="submit" value="Save">
+    </form>
+
+
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>

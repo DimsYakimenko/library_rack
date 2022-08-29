@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>authors</title>
+  </head>
+  <body>
+    <h1>Authors</h1>
+    <% @library.authors.uniq(&:name).map do |author| %>
+      <h4><%= author.name %></h4>
+      <span><%= author.biography %></span>
+      <br>
+    <% end %>
+    <form method="post">
+      <label for="name">Name:</label>
+      <br>
+      <input id="name" type="text" name="name">
+      <br>
+
+      <label for="biography">Biography:</label>
+      <br>
+      <input id="biography" type="text" name="biography">
+      <br>
+      <br>
+
+      <input type="submit" value="Save">
+    </form>
+    <br>
+    <a href="/">BACK TO MAIN</a>
+  </body>
+</html>
